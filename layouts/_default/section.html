@@ -28,9 +28,18 @@
                     <div class="group-title-month">{{- .Key }}</div>
                     {{- range .Pages -}}
                         <article class="archive-item">
-                            <a href="{{ .RelPermalink }}" class="archive-item-link">
-                                {{- .Title -}}
-                            </a>
+				{{- $params := .Scratch.Get "params" -}}
+				<!-- If a post defines a Link, go there, otherwise go to post. -->
+				<!-- Leverages Hugo Page documentation https://gohugo.io/variables/page/#pages-->
+				{{- if $params.link -}}
+				    <a href="{{- $params.link -}}" class="archive-item-link">
+				        {{- .Title -}}
+				    </a>
+				{{- else -}}
+				    <a href="{{ .RelPermalink }}" class="archive-item-link">
+				        {{- .Title -}}
+				    </a>
+				{{- end -}}
                             <span class="archive-item-date">
                                 {{- $.Site.Params.section.dateFormat | default "02" | .Date.Format -}}
                             </span>
