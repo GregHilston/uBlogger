@@ -3,6 +3,7 @@
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
     <div class="page single special">
+
         {{- /* Title */ -}}
         <h1 class="single-title pulse faster">
             {{- .Title -}}
@@ -12,6 +13,20 @@
         {{- with $params.subtitle -}}
             <h2 class="single-subtitle">{{ . }}</h2>
         {{- end -}}
+
+        <!-- GregHilston custom modification to get preview image to show-->
+        {{- /* Featured image */ -}}
+        {{- if not $params.summaryStyle.hiddenImage -}}
+        {{- $image := $params.featuredimagepreview | default $params.featuredimage -}}
+        {{- with $image -}}
+            <div class="featured-image-preview">
+                <a href="{{ $.RelPermalink }}">
+                    {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Alt" $.Title  | partial "plugin/image.html" -}}
+                </a>
+            </div>
+        {{- end -}}
+        {{- end -}}
+
 
         {{- /* Content */ -}}
         <div class="content" id="content">
