@@ -1,40 +1,20 @@
 ---
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
 subtitle: ""
-date: {{ .Date }}
-lastmod: {{ .Date }}
-draft: true
-author: ""
 description: ""
 
-page:
-    theme: "wide"
-
-upd: ""
-authorComment: ""
+date: {{ .Date }}
+lastmod: {{ .Date }}
 
 tags: []
-categories: []
-
-hiddenFromHomePage: false
-hiddenFromSearch: false
 
 resources:
 - name: "featured-image"
   src: "featured-image.jpg"
-- name: featured-image-preview
-  src: featured-image-preview.jpg
-
 featuredImage: ""
-featuredImagePreview: ""
-images: [""]
+featuredImageSource: ""
 
-toc:
-  enable: true
-math:
-  enable: false
-
-license: ""
+draft: true
 ---
 
 <!--more-->
