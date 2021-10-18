@@ -19,9 +19,9 @@
         {{- if not $params.summaryStyle.hiddenImage -}}
         {{- $image := $params.featuredimagepreview | default $params.featuredimage -}}
         {{- with $image -}}
-            <div class="featured-image-preview">
+            <div class="featured-image-preview" style="text-align:center;">
                 <a href="{{ $.RelPermalink }}">
-                    {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Alt" $.Title  | partial "plugin/image.html" -}}
+                        {{- dict "Src" . "Title" $.Description "Resources" $.Resources "Alt" $.Title  | partial "plugin/image.html" -}}
                 </a>
             </div>
         {{- end -}}
