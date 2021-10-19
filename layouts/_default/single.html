@@ -31,7 +31,7 @@
         <!-- This goes above our content. From https://npf.io/2014/08/making-it-a-series/ -->
         {{if .Params.series}}
         {{ $name := index .Params.series 0 }}
-        <p class="seriesname">Series: <a href="{{.Site.BaseURL}}/series/{{$name | urlize}}">{{$name}}</a></p>
+        <p class="seriesname">This post is a part of the <a href="{{.Site.BaseURL}}/series/{{$name | urlize}}">{{$name}}</a> series.</p>
         {{end}}
 
 
