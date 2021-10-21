@@ -3,11 +3,10 @@
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
     <div class="page single special">
-
         {{- /* Title */ -}}
-        <h1 class="single-title pulse faster">
+        <h3 class="single-title pulse faster">
             {{- .Title -}}
-        </h1>
+        </h3>
 
         {{- /* Subtitle */ -}}
         {{- with $params.subtitle -}}
