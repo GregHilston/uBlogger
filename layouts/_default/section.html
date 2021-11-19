@@ -34,7 +34,7 @@
                  <!-- The ability to link to an internal post, pretty janky -->
                 {{- if in $params.link "post/" -}}
                     <a href="{{ $params.link }}" class="archive-item-link">
-				        ref "$params.link"
+				       	{{- .Title -}} 
 				    </a>
                 {{- else if $params.link -}}
                     <a href="{{ $params.link }}" class="archive-item-link">
