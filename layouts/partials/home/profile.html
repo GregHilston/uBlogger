@@ -10,7 +10,8 @@
     {{- if $avatar -}}
         <div class="home-avatar">
             {{- $menus := $.Site.Menus.main | default slice -}}
-            {{- with index $menus 0 -}}
+            <!-- Hard coding index 1 from our config.toml's menu ordering to point to about -->
+            {{- with index $menus 1 -}}
                 {{- $url := .URL | relLangURL -}}
                 {{- with .Page -}}
                     {{- $url = .RelPermalink -}}
