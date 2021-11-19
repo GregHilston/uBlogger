@@ -31,12 +31,21 @@
 				{{- $params := .Scratch.Get "params" -}}
 				<!-- If a post defines a Link, go there, otherwise go to post. -->
 				<!-- Leverages Hugo Page documentation https://gohugo.io/variables/page/#pages-->
-				{{- if $params.link -}}
-				    <a href="{{- $params.link -}}" class="archive-item-link">
+                {{- $params.link -}}
+                <!-- The ability to link to an internal post, pretty janky -->
+                {{- if in $params.link "post/" -}}
+                    A
+                    <a href="{{ $params.link }}" class="archive-item-link">
+				        ref "$params.link"
+				    </a>
+                {{- else if $params.link -}}
+				    B
+                    <a href="{{ $params.link }}" class="archive-item-link">
 				        {{- .Title -}}
 				    </a>
 				{{- else -}}
-				    <a href="{{ .RelPermalink }}" class="archive-item-link">
+				    C
+                    <a href="{{ .RelPermalink }}" class="archive-item-link">
 				        {{- .Title -}}
 				    </a>
 				{{- end -}}
